@@ -17,10 +17,11 @@ public class PlayerFireState : PlayerBaseState
         }
         FaceMoveDirection();
         Move();
+        stateMachine.SwitchState(new PlayerMoveState(stateMachine));
         
     }
     public override void Exit()
     {
-
+        
     }
 }
