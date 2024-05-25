@@ -20,7 +20,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnDisable()
     {
-        controls.Disable();
+        controls.Player.Disable();
     }
     public void OnMove(InputAction.CallbackContext context)
     {

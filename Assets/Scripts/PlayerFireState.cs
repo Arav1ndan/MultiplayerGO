@@ -2,22 +2,26 @@ using UnityEngine;
 
 public class PlayerFireState : PlayerBaseState
 {
+    private readonly int FireHash = Animator.StringToHash("Fire");
+    private const float FireSpeed = 1f;
     public PlayerFireState(PlayerStateMachine stateMachine) : base(stateMachine){ }
     public override void Enter()
     {
+        stateMachine.Animator.CrossFade(FireHash,FireSpeed);
         
     }
     public override void Tick()
     {
+        Debug.Log("Tick fire called");
+      
         ApplyGravity();
-        RaycastHit hit;
-        if(Physics.Raycast(stateMachine.MainCamera.position, stateMachine.MainCamera.forward,out hit,stateMachine.Range))
-        {
-            Debug.Log(hit.transform.name + "checking");
-        }
+        AimTarget();
+        Firing();
         FaceMoveDirection();
         Move();
+       
         stateMachine.SwitchState(new PlayerMoveState(stateMachine));
+          
         
     }
     public override void Exit()

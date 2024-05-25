@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(InputReader))]
@@ -12,6 +13,12 @@ public class PlayerStateMachine : StateMachine
     public float LookRotationDampFactor {get; private set;} = 10f;
     public float JumpForce {get; private set;} = 5f;
     public Transform MainCamera {get; private set;}
+    public Camera Camera{get; private set;}
+    
+    public Transform AimTarget;
+    public RectTransform rectTransform{get; private set;}
+    public float aimDistance = 100000f; 
+    public float ImpactForce {get; private set;} = 30f;
     public InputReader InputReader {get; private set;}
     public Animator Animator {get; private set;}
     public CharacterController controller{get; private set;}
@@ -19,11 +26,13 @@ public class PlayerStateMachine : StateMachine
 
     private void Start()
     {
+       
+        Camera = Camera.main;
         MainCamera = Camera.main.transform;
         InputReader = GetComponent<InputReader>();
         Animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-
+        Cursor.lockState = CursorLockMode.Locked;
         // we will call switch state so that we can call the first state we need.
         SwitchState(new PlayerMoveState(this));
     }

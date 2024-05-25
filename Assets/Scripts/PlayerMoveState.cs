@@ -26,8 +26,8 @@ public class PlayerMoveState : PlayerBaseState
         CalculateMoveDirection();
         FaceMoveDirection();
         Move();
+        AimTarget();
         stateMachine.Animator.SetFloat(MoveSpeedHash,stateMachine.InputReader.MoveComposite.sqrMagnitude > 0f? 1f : 0f,AnimationDampTime, Time.deltaTime);
-        Debug.Log("SetFloat called with MoveSpeedHash: " + MoveSpeedHash + " and value: " + stateMachine.MoveSpeed);
 
     }
     public override void Exit()
