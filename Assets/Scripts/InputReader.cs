@@ -7,8 +7,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MoveComposite;
     public Vector2 MouseDelta;
     public Action OnJumpPerformed;  
-    public Action onFirePerformed;
+    public Action OnFirePerformed;
     private Controls controls;
+    public bool isFriing = false;
     private void Awake()
     {
         if (controls != null)
@@ -44,8 +45,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-        if(!context.performed)
+        /*if(!context.performed)
             return;
-        onFirePerformed?.Invoke();
+        OnFirePerformed?.Invoke();
+        Debug.Log("firing is invoking");*/
+        if(context.performed)
+        {
+            OnFirePerformed?.Invoke();
+        }
     }
 }

@@ -20,6 +20,7 @@ public class PlayerJumpState : PlayerBaseState
          stateMachine.SwitchState(new PlayerFallState(stateMachine));
       }
       FaceMoveDirection();
+      Firing();
       Move();
    }
    public override void Exit()

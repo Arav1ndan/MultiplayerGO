@@ -15,7 +15,7 @@ public class PlayerMoveState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(MoveBlendTreeHash,MoveSpeedDuration);
         //Debug.Log("CrossFadeInFixedTime called with BlendTreeHash: " + MoveBlendTreeHash);
         stateMachine.InputReader.OnJumpPerformed += SwitchToJumpState;
-        stateMachine.InputReader.onFirePerformed += SwitchToFireState;
+        //stateMachine.InputReader.onFirePerformed += SwitchToFireState;
     }
     public override void Tick()
     {
@@ -33,7 +33,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void Exit()
     {
        stateMachine.InputReader.OnJumpPerformed -= SwitchToJumpState;
-       stateMachine.InputReader.onFirePerformed -= SwitchToFireState;
+       //stateMachine.InputReader.onFirePerformed -= SwitchToFireState;
     }
     private void SwitchToJumpState()
     {

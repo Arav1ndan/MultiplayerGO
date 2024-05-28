@@ -14,7 +14,7 @@ public class PlayerStateMachine : StateMachine
     public float JumpForce {get; private set;} = 5f;
     public Transform MainCamera {get; private set;}
     public Camera Camera{get; private set;}
-    
+    public CinemachineVirtualCamera cinemachineVirtualCamera;
     public Transform AimTarget;
     public RectTransform rectTransform{get; private set;}
     public float aimDistance = 100000f; 
@@ -23,10 +23,12 @@ public class PlayerStateMachine : StateMachine
     public Animator Animator {get; private set;}
     public CharacterController controller{get; private set;}
     public float Range {get; private set;} = 100f;
+    public ParticleSystem flash;
+    public GameObject HitEffect;
+
 
     private void Start()
     {
-       
         Camera = Camera.main;
         MainCamera = Camera.main.transform;
         InputReader = GetComponent<InputReader>();
