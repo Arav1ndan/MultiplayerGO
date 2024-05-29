@@ -24,7 +24,7 @@ public class PlayerStateMachine : StateMachine
     public CharacterController controller{get; private set;}
     public float Range {get; private set;} = 100f;
     public ParticleSystem flash;
-    public GameObject HitEffect;
+    //public GameObject HitEffect;
 
 
     private void Start()
