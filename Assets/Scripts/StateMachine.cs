@@ -17,7 +17,7 @@ public class StateMachine : MonoBehaviour
         CurrentState.Enter();
     }
     //we will update the state in update method.
-    private void Update()
+    public void Update()
     {
         //This logic runs every frame (sometimes called Execute or Tick) . 
         //You can further segment the Update method as MonoBehaviour does, 

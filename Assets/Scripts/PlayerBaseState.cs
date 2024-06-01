@@ -3,12 +3,10 @@ using UnityEngine;
 public abstract class PlayerBaseState : State
 {
     protected readonly PlayerStateMachine stateMachine;
-    private bool IsFiring = false;
 
     protected PlayerBaseState(PlayerStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
-        stateMachine.InputReader.OnFirePerformed += HandleFireEvent;
     }
     protected void CalculateMoveDirection()
     {
@@ -44,22 +42,17 @@ public abstract class PlayerBaseState : State
         stateMachine.AimTarget.position = stateMachine.cinemachineVirtualCamera.transform.position + stateMachine.cinemachineVirtualCamera.transform.forward * stateMachine.aimDistance;
         
     }
-    private void HandleFireEvent()
-    {
-        IsFiring = !IsFiring;
-        if(IsFiring)
-        {
-            Firing();
-            Debug.Log("Firing");    
-        }
-    }
     protected void Firing()
     {
+        if(!stateMachine.InputReader.OnFirePerformed)
+        {
+            return;
+        }
         stateMachine.flash.Play();
-        Debug.Log(stateMachine.flash+ "is playing");
         RaycastHit hit;
         if (Physics.Raycast(stateMachine.MainCamera.position, stateMachine.MainCamera.forward, out hit, stateMachine.Range))
         {
+            Debug.Log(hit.collider.name);
             Vector3 forceDirection = stateMachine.MainCamera.transform.forward;
             if (hit.rigidbody != null)
             {

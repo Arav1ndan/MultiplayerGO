@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMoveState : PlayerBaseState
+public class PlayerMoveState : PlayerBaseState 
 {
     private readonly int MoveSpeedHash = Animator.StringToHash("MoveSpeed");
     
@@ -26,6 +26,7 @@ public class PlayerMoveState : PlayerBaseState
         CalculateMoveDirection();
         FaceMoveDirection();
         Move();
+        Firing();
         AimTarget();
         stateMachine.Animator.SetFloat(MoveSpeedHash,stateMachine.InputReader.MoveComposite.sqrMagnitude > 0f? 1f : 0f,AnimationDampTime, Time.deltaTime);
 

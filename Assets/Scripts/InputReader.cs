@@ -6,10 +6,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MoveComposite;
     public Vector2 MouseDelta;
-    public Action OnJumpPerformed;  
-    public Action OnFirePerformed;
+    public Action OnJumpPerformed;
+    public bool OnFirePerformed;
     private Controls controls;
-    public bool isFriing = false;
+    private WeaponScript weaponScript;
     private void Awake()
     {
         if (controls != null)
@@ -39,19 +39,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     }
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if(!context.performed)
+        if (!context.performed)
             return;
-        
+
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-        /*if(!context.performed)
-            return;
-        OnFirePerformed?.Invoke();
-        Debug.Log("firing is invoking");*/
-        if(context.performed)
-        {
-            OnFirePerformed?.Invoke();
-        }
+        OnFirePerformed = context.performed;
     }
+
 }

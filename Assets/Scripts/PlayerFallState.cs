@@ -13,7 +13,7 @@ public class PlayerFallState : PlayerBaseState
     public override void Tick()
     {
         ApplyGravity();
-        Firing();
+        //Firing();
         Move();
         if(stateMachine.controller.isGrounded)
         {

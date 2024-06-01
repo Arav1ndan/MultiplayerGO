@@ -225,8 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2425456}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08852523, y: -0.000000017666302, z: -0.0000000015700778,
-    w: 0.99607396}
+  m_LocalRotation: {x: -0.08852523, y: 0.00000001267449, z: 0.0000000011264348, w: 0.99607396}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5210,7 +5209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57230228}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.055985183, y: -0.0000000021474245, z: -1.2041282e-10, w: 0.9984316}
+  m_LocalRotation: {x: -0.0559852, y: 4.782251e-17, z: -3.9309873e-17, w: 0.9984316}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6256,7 +6255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06426494, y: 0, z: 0, w: 0.9979329}
+  m_LocalRotation: {x: -0.06426494, y: 1.6965899e-22, z: 1.0925709e-23, w: 0.9979329}
   m_LocalPosition: {x: 0, y: 1.35, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12514,7 +12513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveComposite: {x: 0, y: 0}
   MouseDelta: {x: 0, y: 0}
-  isFriing: 0
+  OnFirePerformed: 0
 --- !u!95 &644385173
 Animator:
   serializedVersion: 5
@@ -36033,7 +36032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850409100}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.064264946, y: -1e-45, z: -0, w: 0.9979329}
+  m_LocalRotation: {x: -0.064264946, y: 1.6901186e-22, z: 9.623248e-24, w: 0.9979329}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38120,7 +38119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveComposite: {x: 0, y: 0}
   MouseDelta: {x: 0, y: 0}
-  isFriing: 0
+  OnFirePerformed: 0
 --- !u!143 &919132147525824496
 CharacterController:
   m_ObjectHideFlags: 0
