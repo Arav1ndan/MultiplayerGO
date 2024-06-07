@@ -19,7 +19,7 @@ public class PlayerFireState : PlayerBaseState
             
         }
         ApplyGravity();
-        AimTarget();
+        //AimTarget();
         Firing();
         FaceMoveDirection();
         Move();     

@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
-public class InputReader : MonoBehaviour, Controls.IPlayerActions
+public class InputReader : MonoBehaviourPunCallbacks, Controls.IPlayerActions
 {
     public Vector2 MoveComposite;
     public Vector2 MouseDelta;

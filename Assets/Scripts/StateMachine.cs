@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine : MonoBehaviourPunCallbacks
 {
     //we are making current state because we know at a time we can only use one state
     private State CurrentState;

@@ -37,11 +37,11 @@ public abstract class PlayerBaseState : State
     {
         stateMachine.controller.Move(stateMachine.Velocity * Time.deltaTime);
     }
-    protected void AimTarget()
+    /*protected void AimTarget()
     {
         stateMachine.AimTarget.position = stateMachine.cinemachineVirtualCamera.transform.position + stateMachine.cinemachineVirtualCamera.transform.forward * stateMachine.aimDistance;
         
-    }
+    }*/
     protected void Firing()
     {
         if(!stateMachine.InputReader.OnFirePerformed)
