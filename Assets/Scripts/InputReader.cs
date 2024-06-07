@@ -22,21 +22,30 @@ public class InputReader : MonoBehaviourPunCallbacks, Controls.IPlayerActions
     }
     public void OnDisable()
     {
-        controls.Player.Disable();
+        if(photonView.IsMine)
+            controls.Player.Disable();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        MoveComposite = context.ReadValue<Vector2>();
+        if (photonView.IsMine)
+            MoveComposite = context.ReadValue<Vector2>();
     }
     public void OnLook(InputAction.CallbackContext context)
     {
-        MouseDelta = context.ReadValue<Vector2>();
+        if (photonView.IsMine)
+        {
+            MouseDelta = context.ReadValue<Vector2>();
+        }
+
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (!context.performed)
-            return;
-        OnJumpPerformed?.Invoke();
+        if (photonView.IsMine)
+        {
+            if (!context.performed)
+                return;
+            OnJumpPerformed?.Invoke();
+        }
     }
     public void OnSprint(InputAction.CallbackContext context)
     {
