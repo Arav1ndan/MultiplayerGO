@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerFallState : PlayerBaseState
 {
     private readonly int FallHash = Animator.StringToHash("Fall");
-    private const float FallSpeed = 0.1f;
+    private const float FallSpeed = 0.2f;
     public PlayerFallState(PlayerStateMachine stateMachine): base(stateMachine){ }
     public override void Enter()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerJumpState : PlayerBaseState
 {
    private readonly int JumpHash = Animator.StringToHash("Jump");
-   private const float JumpSpeed = 0.1f;
+   private const float JumpSpeed = 0.2f;
    public PlayerJumpState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
    public override void Enter()

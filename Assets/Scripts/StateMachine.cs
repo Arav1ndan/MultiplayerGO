@@ -3,6 +3,7 @@ using Photon.Pun;
 
 public class StateMachine : MonoBehaviourPunCallbacks
 {
+    
     //we are making current state because we know at a time we can only use one state
     private State CurrentState;
     //Now we are making a switch state so that we can switch states we -

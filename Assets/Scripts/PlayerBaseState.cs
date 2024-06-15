@@ -18,6 +18,7 @@ public abstract class PlayerBaseState : State
 
         stateMachine.Velocity.x = moveDirection.x * stateMachine.MoveSpeed;
         stateMachine.Velocity.z = moveDirection.z * stateMachine.MoveSpeed;
+        Debug.Log(moveDirection + "value");
     }
     protected void FaceMoveDirection()
     {
@@ -44,10 +45,7 @@ public abstract class PlayerBaseState : State
     }*/
     protected void Firing()
     {
-        if(!stateMachine.InputReader.OnFirePerformed)
-        {
-            return;
-        }
+        //stateMachine.InputReader.OnFirePerformed?.Invoke();
         stateMachine.flash.Play();
         RaycastHit hit;
         if (Physics.Raycast(stateMachine.MainCamera.position, stateMachine.MainCamera.forward, out hit, stateMachine.Range))

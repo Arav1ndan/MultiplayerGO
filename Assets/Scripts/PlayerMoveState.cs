@@ -15,7 +15,7 @@ public class PlayerMoveState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(MoveBlendTreeHash,MoveSpeedDuration);
         //Debug.Log("CrossFadeInFixedTime called with BlendTreeHash: " + MoveBlendTreeHash);
         stateMachine.InputReader.OnJumpPerformed += SwitchToJumpState;
-        //stateMachine.InputReader.onFirePerformed += SwitchToFireState;
+        stateMachine.InputReader.OnFireStarted += SwitchToFireState;
     }
     public override void Tick()
     {
@@ -24,9 +24,10 @@ public class PlayerMoveState : PlayerBaseState
             stateMachine.SwitchState(new PlayerFallState(stateMachine));
         }
         CalculateMoveDirection();
+        ApplyGravity();
         FaceMoveDirection();
         Move();
-        Firing();
+        //Firing();
         //AimTarget();
         stateMachine.Animator.SetFloat(MoveSpeedHash,stateMachine.InputReader.MoveComposite.sqrMagnitude > 0f? 1f : 0f,AnimationDampTime, Time.deltaTime);
 
@@ -34,7 +35,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void Exit()
     {
        stateMachine.InputReader.OnJumpPerformed -= SwitchToJumpState;
-       //stateMachine.InputReader.onFirePerformed -= SwitchToFireState;
+       stateMachine.InputReader.OnFireCancelled-= SwitchToFireState;
     }
     private void SwitchToJumpState()
     {

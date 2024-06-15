@@ -8,21 +8,23 @@ public class InputReader : MonoBehaviourPunCallbacks, Controls.IPlayerActions
     public Vector2 MoveComposite;
     public Vector2 MouseDelta;
     public Action OnJumpPerformed;
-    public bool OnFirePerformed;
+    public event Action OnFireStarted;
+    public event Action OnFireCancelled;
     private Controls controls;
-    private WeaponScript weaponScript;
     private void Awake()
     {
         if (controls != null)
             return;
-
-        controls = new Controls();
-        controls.Player.SetCallbacks(this);
-        controls.Player.Enable();
+        if (photonView.IsMine)
+        {
+            controls = new Controls();
+            controls.Player.SetCallbacks(this);
+            controls.Player.Enable();
+        }
     }
-    public void OnDisable()
+    public override void OnDisable()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
             controls.Player.Disable();
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -55,7 +57,21 @@ public class InputReader : MonoBehaviourPunCallbacks, Controls.IPlayerActions
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-        OnFirePerformed = context.performed;
+        if (photonView.IsMine)
+        {
+            if (context.started)
+            {
+                Debug.Log("Fire started");
+                OnFireStarted?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                Debug.Log("Fire cancelled");
+                OnFireCancelled?.Invoke();
+            }
+        }
     }
-
 }
+    
+
+
