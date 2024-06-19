@@ -13,8 +13,8 @@ public class PlayerStateMachine : StateMachine
     public float LookRotationDampFactor { get; private set; } = 10f;
     public float JumpForce { get; private set; } = 5f;
     public Transform MainCamera { get; private set; }
-    //public Camera Camera{get; private set;}
-    public CinemachineVirtualCamera cinemachineVirtualCamera;
+    public Camera Camera ;
+    public CinemachineVirtualCamera Vcam;
     public Transform AimTarget;
     public RectTransform rectTransform { get; private set; }
     public float aimDistance = 100000f;
@@ -26,7 +26,7 @@ public class PlayerStateMachine : StateMachine
     public ParticleSystem flash;
     private void Start()
     {
-        //Camera = Camera.main;
+        
         MainCamera = Camera.main.transform;
         InputReader = GetComponent<InputReader>();
         Animator = GetComponent<Animator>();

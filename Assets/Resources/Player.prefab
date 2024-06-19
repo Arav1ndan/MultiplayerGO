@@ -8207,7 +8207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveComposite: {x: 0, y: 0}
   MouseDelta: {x: 0, y: 0}
-  OnFirePerformed: 0
 --- !u!114 &1192449572625538080
 MonoBehaviour:
   m_ObjectHideFlags: 0

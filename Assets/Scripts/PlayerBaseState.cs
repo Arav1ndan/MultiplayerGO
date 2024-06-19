@@ -45,10 +45,13 @@ public abstract class PlayerBaseState : State
     }*/
     protected void Firing()
     {
+        
         //stateMachine.InputReader.OnFirePerformed?.Invoke();
         stateMachine.flash.Play();
-        RaycastHit hit;
-        if (Physics.Raycast(stateMachine.MainCamera.position, stateMachine.MainCamera.forward, out hit, stateMachine.Range))
+        Ray ray = stateMachine.Camera.ViewportPointToRay(new Vector3(0.5f,0.5f));
+        ray.origin = stateMachine.Camera.transform.position;
+        //RaycastHit hit;
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Debug.Log(hit.collider.name);
             Vector3 forceDirection = stateMachine.MainCamera.transform.forward;

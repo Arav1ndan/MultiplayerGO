@@ -63,8 +63,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
     public override void OnConnectedToMaster()
     {
-
-
         PhotonNetwork.JoinLobby();
 
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -92,7 +90,6 @@ public class Launcher : MonoBehaviourPunCallbacks
             PhotonNetwork.NickName = PlayerPrefs.GetString("PlayerName");
         }
     }
-
     public void OpenRoomCreate()
     {
         CloseMenus();
@@ -128,7 +125,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             startButton.SetActive(false);
         }
-
     }
     private void ListAllPlayers()
     {
