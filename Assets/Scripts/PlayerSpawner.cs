@@ -12,9 +12,9 @@ public class PlayerSpawner : MonoBehaviour
         instance = this;
     }
     public GameObject playerPrefab;
-    public GameObject cameraPrefab;
+    //public GameObject cameraPrefab;
     private GameObject player;
-    public CinemachineVirtualCamera camObj;
+    //public CinemachineVirtualCamera camObj;
     void Start()
     {
        
@@ -30,13 +30,13 @@ public class PlayerSpawner : MonoBehaviour
         Transform spawnPoint = SpawnManager.instance.GetSpawnPoint();
         
         player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
-        GameObject _Camera = PhotonNetwork.Instantiate(cameraPrefab.name, player.transform.position, Quaternion.identity);
+       //GameObject _Camera = PhotonNetwork.Instantiate(cameraPrefab.name, player.transform.position, Quaternion.identity);
         //_Camera.transform.parent = player.transform;
-        CinemachineVirtualCamera _vcam = _Camera.GetComponent<CinemachineVirtualCamera>();
+        //CinemachineVirtualCamera _vcam = _Camera.GetComponent<CinemachineVirtualCamera>();
         //CinemachineTransposer transposer = _vcam.GetCinemachineComponent<CinemachineTransposer>();
       
-        _vcam.LookAt = player.transform;
-        _vcam.Follow = player.transform;
+        //_vcam.LookAt = player.transform;
+        //_vcam.Follow = player.transform;
     }
    
 }   

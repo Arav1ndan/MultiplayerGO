@@ -22,6 +22,8 @@ public class InputReader : MonoBehaviourPunCallbacks, Controls.IPlayerActions
             controls.Player.Enable();
         }
     }
+   
+    
     public override void OnDisable()
     {
         if (photonView.IsMine)
@@ -71,7 +73,8 @@ public class InputReader : MonoBehaviourPunCallbacks, Controls.IPlayerActions
             }
         }
     }
+
 }
-    
+
 
 

@@ -1,6 +1,7 @@
+using Photon.Pun;
 using UnityEngine;
 
-public abstract class PlayerBaseState : State
+public abstract class PlayerBaseState : State 
 {
     protected readonly PlayerStateMachine stateMachine;
 
@@ -8,9 +9,9 @@ public abstract class PlayerBaseState : State
     {
         this.stateMachine = stateMachine;
     }
+    
     protected void CalculateMoveDirection()
     {
-
         Vector3 cameraForward = new(stateMachine.MainCamera.forward.x, 0, stateMachine.MainCamera.forward.z);
         Vector3 cameraRight = new(stateMachine.MainCamera.right.x, 0, stateMachine.MainCamera.right.z);
 
@@ -18,7 +19,7 @@ public abstract class PlayerBaseState : State
 
         stateMachine.Velocity.x = moveDirection.x * stateMachine.MoveSpeed;
         stateMachine.Velocity.z = moveDirection.z * stateMachine.MoveSpeed;
-        Debug.Log(moveDirection + "value");
+        //Debug.Log(moveDirection + "value");
     }
     protected void FaceMoveDirection()
     {
@@ -53,10 +54,11 @@ public abstract class PlayerBaseState : State
         //RaycastHit hit;
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Debug.Log(hit.collider.name);
             Vector3 forceDirection = stateMachine.MainCamera.transform.forward;
             if (hit.rigidbody != null)
             {
+                //if we need we can make a gun script and add property for gun and we can give differnet values for differnet guns right now i am using one so that i am hard coding that here
+                hit.collider.gameObject.GetComponent<IDamageable>()?.takeDamage(25);
                 hit.rigidbody.AddForce(-hit.normal * stateMachine.ImpactForce);
             }
         }

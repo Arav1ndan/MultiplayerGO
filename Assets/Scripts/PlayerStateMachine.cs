@@ -13,7 +13,7 @@ public class PlayerStateMachine : StateMachine
     public float LookRotationDampFactor { get; private set; } = 10f;
     public float JumpForce { get; private set; } = 5f;
     public Transform MainCamera { get; private set; }
-    public Camera Camera ;
+    public Camera Camera;
     public CinemachineVirtualCamera Vcam;
     public Transform AimTarget;
     public RectTransform rectTransform { get; private set; }
@@ -26,14 +26,15 @@ public class PlayerStateMachine : StateMachine
     public ParticleSystem flash;
     private void Start()
     {
-        
+
         MainCamera = Camera.main.transform;
         InputReader = GetComponent<InputReader>();
         Animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         // we will call switch state so that we can call the first state we need.
         SwitchState(new PlayerMoveState(this));
+      
     }
 
 }

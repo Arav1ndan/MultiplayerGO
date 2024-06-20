@@ -5,8 +5,8 @@ public class PlayerFireState : PlayerBaseState
     private readonly int MoveFireHash = Animator.StringToHash("FireSpeed");
 
     private readonly int FireBlenTreeHash = Animator.StringToHash("FiringTree");
-    private const float AnimationDampTime = 0.001f;
-    private const float FireSpeedDuration = 0.0001f;
+    private const float AnimationDampTime = 0.1f;
+    private const float FireSpeedDuration = 0.1f;
 
     public PlayerFireState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
